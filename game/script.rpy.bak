@@ -11,10 +11,6 @@ define doug = Character("Doug")
 define snow = Character("Snow")
 define catbot = Character("Catbot")
 
-# NVL characters are used for the phone texting
-define p_nvl = Character("Me", kind=nvl, callback=Phone_SendSound)
-define m_nvl = Character("Meoricio", kind=nvl, callback=Phone_ReceiveSound)
-
 # just for funny
 define e1 = Character("Employer 1")
 define e2 = Character("Employer 2")
@@ -67,8 +63,6 @@ image bg home = "bg/home.png"
 
 image bg office2  = "bg/office2.png"
 
-image bg selection = "bg/selection.png"
-
 # The game starts here.
 label start:
     $ style.say_window = style.window
@@ -76,7 +70,6 @@ label start:
     $ player_name = name.strip()
     "[name]! I love that!"
     "Pick your character!"
-    show bg selection
     call screen character_select
     return
 
@@ -117,7 +110,6 @@ label set_cat3:
 
 
 label after_start:
-    hide bg selection
     $ style.say_window = style.window
     show catbot true
     catbot "Hi there! My name is Catbot!"
@@ -433,66 +425,59 @@ label after_start:
 
     "I have to tell my best friend."
 
-    
-    nvl_narrator "Meowricio is online."
+    # !!! here we would have to add in a phone
 
-    p_nvl "Meowricio!"
+    $ style.say_window = window_style
+    name "Meowricio!"
+    $ style.say_window = style.window
+    meow "Oh hey, [name]! What’s up!"
 
-    m_nvl "Oh hey, [name]! What’s up!"
+    $ style.say_window = window_style
+    name "Guess who is employed?"
+    $ style.say_window = style.window
+    meow "YESSSS! Give me all the details!"
 
-    p_nvl "Guess who is employed?"
+    $ style.say_window = window_style
+    name "It’s at Phish n’ Chips."
+    $ style.say_window = style.window
+    meow "Phish n' Chips? What do they do?"
 
-    m_nvl "YESSSS! Give me all the details! {image=emoji/clap.png}"
+    $ style.say_window = window_style
+    name "They manufacture computer chips!"
+    $ style.say_window = style.window
+    meow "Ohhh! Right. I’ve heard of them!"
 
-    p_nvl "It’s at Phish n’ Chips."
-
-    m_nvl "Phish n' Chips? What do they do?"
-
-    p_nvl "They manufacture computer chips!"
-
-    m_nvl "Ohhh! Right. I’ve heard of them!"
-
-    m_nvl "When do you start?"
-
-    p_nvl "Tomorrow!"
-
-    m_nvl "Awesome!! You’ll do great!"
-
-    p_nvl "Thanks, Meowricio :)"
-
-    m_nvl "fknknal.ca/isthisyou?"
+    meow "When do you start?"
+    $ style.say_window = window_style
+    name "Tomorrow!"
+    $ style.say_window = style.window
+    meow "Awesome!! You’ll do great!"
+    $ style.say_window = window_style
+    name "Thanks, Meowricio :)"
+    $ style.say_window = style.window
+    meow "fknknal.ca/isthisyou?"
 
     menu:
         "Click on the link":
             "I click on the link and instantly get logged out of my account."
-            #$ style.say_window = window_style
-            #name "What’s going on?!"
+            $ style.say_window = window_style
+            name "What’s going on?!"
 
             $ style.say_window = style.window
             "After logging back in."
 
-            p_nvl "What’s going on?!"
-            
-            m_nvl "Hey! Sorry about that! I think I got hacked! You didn’t click the link…did you?"
-            
-            "I checked my messages…the link was sent to my other friends as well…"
-            
-            p_nvl "Oh no! Oh no!"
+            meow "Hey! Sorry about that! I think I got hacked! You didn’t click the link…did you?"
 
-            #meow "Hey! Sorry about that! I think I got hacked! You didn’t click the link…did you?"
+            mewo "I checked my messages…the link was sent to my other friends as well…"
 
-            #mewo "I checked my messages…the link was sent to my other friends as well…"
-
-            #$ style.say_window = window_style
-            #name "Oh no! Oh no!"
+            $ style.say_window = window_style
+            name "Oh no! Oh no!"
 
             show catbot false
             $ style.say_window = style.window
             catbot "Beware of random links! They could get you hacked or steal your information! You can see where they lead to by hovering over them or using a link scanner."
-            
-            #p_nvl "What should I do?"
-            
-            $ style.say_window = window_style  
+           
+            $ style.say_window = window_style 
             name "What should I do?"
             show catbot n
             menu:
@@ -523,15 +508,12 @@ label after_start:
                     $ cyberpoints += 1
 
         "What is this?":
-            p_nvl "What’s this link?"
-            m_nvl "Oh noes! DON’T click on it! I think I got hacked. {image=emoji/fear.png}"
-            m_nvl "Ahhhh! What should I do?"
-            #$ style.say_window = window_style
-            #name "What’s this link?"
-            #$ style.say_window = style.window
-            #meow "Oh noes! DON’T click on it! I think I got hacked."
-            #$ style.say_window = window_style
-            #meow "Ahhhh! What should I do?"
+            $ style.say_window = window_style
+            name "What’s this link?"
+            $ style.say_window = style.window
+            meow "Oh noes! DON’T click on it! I think I got hacked."
+            $ style.say_window = window_style
+            meow "Ahhhh! What should I do?"
 
             menu:
                 "Only delete all the links":
@@ -545,18 +527,14 @@ label after_start:
                     show catbot true                    
                     catbot "That’s right! If you get hacked, change your password immediately and delete all those messages with the links! Let your friends know that you’ve been hacked!"
                     hide catbot true
-                    p_nvl "Meowricio! You should change your password. Then, delete all those messages and let everyone else know that you got hacked."
-                    #$ style.say_window = window_style
-                    #name "Meowricio! You should change your password. Then, delete all those messages and let everyone else know that you got hacked."
-                    m_nvl "Meow! You’re right! What would I do without you?"
-                    #$ style.say_window = style.window
-                    #meow "Meow! You’re right! What would I do without you?"
+                    $ style.say_window = window_style
+                    name "Meowricio! You should change your password. Then, delete all those messages and let everyone else know that you got hacked."
+                    $ style.say_window = style.window
+                    meow "Meow! You’re right! What would I do without you?"
 
                     $ cyberpoints += 1
 
-    hide catbot true
-    hide catbot n
-    hide catbot false
+
     $ style.say_window = style.window
     "Phew. That is settled. Now it is time for bed."
     hide bg home
@@ -635,11 +613,9 @@ label after_start:
     
     show snow n
     snow "Here’s a To-Do List to help you get started."
-    
+
     snow "You can follow me to your office space."
-    hide snow n
-    hide catbot n 
-    hide catbot false
+    hide snow n 
     hide bg outsideoffice
 
     "I follow Snow to a room with 3 cubicles. She points to one nearest to the door."
@@ -1467,7 +1443,7 @@ label minigame_6:
     $max_win = 15 
 
     while not wins + loses == max_win:
-        call qte_setup(0.99, 0.99, 0.01, renpy.random.choice(arr_keys), renpy.random.randint(1, 9) * 0.1, renpy.random.randint(1, 9) * 0.1) from _call_qte_setup
+        call qte_setup(0.99, 0.99, 0.01, renpy.random.choice(arr_keys), renpy.random.randint(1, 9) * 0.1, renpy.random.randint(1, 9) * 0.1)
         python:
             if cont == 1:
                 wins = wins +1
@@ -1496,7 +1472,7 @@ label minigame_6_2:
     $max_win = 10 
 
     while not wins + loses == max_win:
-        call qte_setup(0.65, 0.65, 0.01, renpy.random.choice(arr_keys), renpy.random.randint(1, 9) * 0.1, renpy.random.randint(1, 9) * 0.1) from _call_qte_setup_1
+        call qte_setup(0.65, 0.65, 0.01, renpy.random.choice(arr_keys), renpy.random.randint(1, 9) * 0.1, renpy.random.randint(1, 9) * 0.1)
         python:
             if cont == 1:
                 wins = wins +1
@@ -1612,7 +1588,6 @@ label after_minigame_6:
         return
 
     label bad:
-        hide bg outsideoffice
         show bg home
         "At home."
         $ style.say_window = window_style
