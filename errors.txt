@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 930: expected a keyword argument or end of line.
-    focus_mask = True
-               ^
+File "game/script.rpy", line 859: expected menuitem
+    $ style.say_window = window_style
+    ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Sat May  7 15:40:04 2022
+Mon May  9 10:22:50 2022
