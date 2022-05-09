@@ -2,9 +2,40 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 859: expected menuitem
-    $ style.say_window = window_style
-    ^
+File "game/script.rpy", line 461: end of line expected.
+(Perhaps you left out a ' at the end of the first line.)
+    '''
+        $ style.say_window = window_style
+        name "Meowricio!"
+        $ style.say_window = style.window
+        meow "Oh hey, [name]! What’s up!"
+    
+        $ style.say_window = window_style
+        name "Guess who is employed?"
+        $ style.say_window = style.window
+        meow "YESSSS! Give me all the details!"
+    
+        $ style.say_window = window_style
+        name "It’s at Phish n’ Chips."
+        $ style.say_window = style.window
+        meow "Phish n' Chips? What do they do?"
+                                     ^
+    
+        $ style.say_window = window_style
+        name "They manufacture computer chips!"
+        $ style.say_window = style.window
+        meow "Ohhh! Right. I’ve heard of them!"
+    
+        meow "When do you start?"
+        $ style.say_window = window_style
+        name "Tomorrow!"
+        $ style.say_window = style.window
+        meow "Awesome!! You’ll do great!"
+        $ style.say_window = window_style
+        name "Thanks, Meowricio :)"
+        $ style.say_window = style.window
+        meow "fknknal.ca/isthisyou?"
+        '''
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Mon May  9 10:22:50 2022
+Mon May  9 11:27:05 2022
