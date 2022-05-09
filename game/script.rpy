@@ -27,9 +27,7 @@ label start:
     $ name = renpy.input("What's your name?", "Catya", length=15)
     $ player_name = name.strip()
     "[name]! I love that!"
-
-    #jump minigame_6
-    jump minigame_4
+    jump after_start
     return
 
 label after_start:
