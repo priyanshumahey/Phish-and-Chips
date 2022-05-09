@@ -2,7 +2,6 @@
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
-#define name = Character("Test Name")
 define name = Character("[name]")
 define pumpkin = Character("Pumpkin")
 define meow = Character("Meowricio")
@@ -29,8 +28,8 @@ label start:
     $ player_name = name.strip()
     "[name]! I love that!"
 
-    jump minigame_6
-    jump after_start
+    #jump minigame_6
+    jump minigame_4
     return
 
 label after_start:
@@ -223,7 +222,9 @@ label after_start:
 
     "Phone reminder: Rent is due in 14 days."
 
-    name "Right…rent is due soon. I don’t think babysitting money is going to be enough to cover it. I hope I hear back from a job soon…I desperately need it."
+    name "Right…rent is due soon. I don’t think babysitting money is going to be enough to cover it."
+    
+    "I hope I hear back from a job soon…I desperately need it."
 
     name "Ughhh"
 
@@ -233,13 +234,13 @@ label after_start:
 
     name "An email?"
 
-    "Dear, [name],
+    "Dear, [name], we have carefully gone over your application and reviewed your interview."
 
-    After carefully going over your application and reviewing your interview, we would like you to invite you to work with us at Phish n’ Chips Inc. as an intern.
+    "We would like you to invite you to work with us at Phish n’ Chips Inc. as an intern."
 
-    Please reply as soon as you are available.
+    "Please reply as soon as you are available."
 
-    Best,
+    "Best,
 
     Pumpkin
     CEO"
@@ -355,7 +356,7 @@ label after_start:
                 "Only delete all the messages":
                     catbot "This answer could be better. If you get hacked, change your password immediately and delete all those messages with the links! Let your friends know that you’ve been hacked!"
 
-                "Change your password and delete all the messages with the links":
+                "Change password and delete messages with links":
                     catbot "That’s right! If you get hacked, change your password immediately and delete all those messages with the links! Let your friends know that you’ve been hacked!"
 
                     name "Meowricio! You should change your password. Then, delete all those messages and let everyone else know that you got hacked."
@@ -517,6 +518,8 @@ label minigame_2:
     hide screen wifi
     "This is the perfect wifi! It is secure, it is not someone's personal WiFi!"
     "The name IS a bit silly tho..."
+    "We always have to be careful which wifi we connect to since the wifi network can access a lot of personal information."
+    "This can include which websites we access and what we download"
     "Now that I have my wifi secured, I can do To-Do number 2!"
     # [Account set-up game]
 
@@ -711,13 +714,14 @@ label after_minigame_2:
     "Doug points to a dark room."
 
     doug "I set my laptop up over there woof. I mean meow. Just be careful when you login...there might be some cybersecurity risks in there that you need to take care of first."
-    jump minigame_3
-    return
 
-label minigame_3:
-    # [Click on all the cyber security hazards game]
+    name "What kind of security hazards might there be?"
 
-    doug "Well done. Here you go."
+    doug "Sometimes, you forgot to logout and that can cause issues"
+
+    "People can also track what you do their on their laptops so be super careful which kind of information you go through on other's computers"
+
+    name "Oh you're right! I'll try to be careful what I access with public computers and other people computers."
 
     "I turn on the laptop and get to the login screen."
 
@@ -756,7 +760,12 @@ label paws_check:
                 contin = False
         call screen up_down
     if not contin:
-        jump after_minigame_4
+        if outs == max_outs:
+            jump after_minigame_4
+        else:
+            "Oh no! I didn't do them properly!"
+            "I guess I have to do it again!"
+            jump pre_minigame_4
     return 
 
 screen up_down:
@@ -797,7 +806,13 @@ label paws_up_lab:
     return
 
 label minigame_4:
-    # [The email game; you have to remember to LOGOUT in order to end the game]
+    "Alright! Time to check my emails!"
+
+    "Click paws up if it's a good email and I should reply to it!"
+
+    "Click paws down if it's a bad email (phishing or spam) and I should block the sender and delete the email!"
+
+    
     jump pre_minigame_4
     return
 
@@ -855,7 +870,9 @@ label after_minigame_4:
 
             jerry "O-oh no! What’s happening?"
 
-            catbot "Be careful when downloading files on the internet! Downloaded files might contain viruses or malicious code. This could mean spyware and Trojans designed to steal data or create backdoors in the computers."
+            catbot "Be careful when downloading files on the internet! Downloaded files might contain viruses or malicious code."
+            
+            catbot "This could mean spyware and Trojans designed to steal data or create backdoors in the computers."
 
             jerry "I-I should have updated my firewall."
 
@@ -955,7 +972,9 @@ screen doors5:
 
 label minigame_5:
     # [Traversing the web (add in something about secure and insecure networks). A puzzle game where you have to get through all the right doors]
-    "When I'm on the web, I need to be super careful! Let me make sure to only go on sites that are safe to traverse onto."
+    "When I'm on the web, I need to be super careful!"
+    "Let me make sure to only go on sites that are safe to traverse onto."
+    "Click on the door with the safer option below it!"
     call screen doors1
     return
 
@@ -1050,7 +1069,7 @@ label after_minigame_5:
 
             catbot "Nice work! Encrypting files-- especially confidential ones, is important."
 
-        "Suggest encrypting the files before sending it through email":
+        "Suggest encrypting files before sending it via email":
 
             name "I’ll send it over to your email."
 
@@ -1058,7 +1077,8 @@ label after_minigame_5:
 
             "After encrypting the email…"
 
-            catbot "Nice work! Encrypting files-- especially confidential ones, is important. That way, if your email gets intercepted, cats that aren’t supposed to see your files won’t be able to understand them!"
+            catbot "Nice work! Encrypting files-- especially confidential ones, is important."
+            catbot "That way, if your email gets intercepted, cats that aren’t supposed to see your files won’t be able to understand them!"
 
             $ cyberpoints += 1
 
@@ -1102,7 +1122,18 @@ label after_minigame_5:
 
     name "Yeah…I guess so…"
     
-    Name "Alright time to clean up! I have to clean the proper areas!"
+    "Aw man... I was really excited for this job too..."
+
+    name "Alright time to clean up! I have to clean the proper areas!"
+    
+    "Typically when you're finished with work you should keep the work area clean"
+
+    "You should also try to keep computers clean! Especially ones with secure information on them"
+
+    "To get rid of any documents, they need to be shred and on anything private on the computer, they need to be securely deleted"
+
+    "I need to make sure my harddrive is properly cleared of any private information"
+    
     "Press the right keys on areas we think might be dirty to clean!"
     jump minigame_6
     return

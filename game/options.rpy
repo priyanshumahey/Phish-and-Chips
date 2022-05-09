@@ -12,13 +12,13 @@
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
-define config.name = _("Phish and Chips")
+define config.name = _("Phish n Chips")
 
 
 ## Determines if the title given above is shown on the main menu screen. Set
 ## this to False to hide the title.
 
-define gui.show_name = True
+define gui.show_name = False
 
 
 ## The version of the game.
@@ -37,14 +37,13 @@ define gui.about = _p("""
 ## distribution. This must be ASCII-only, and must not contain spaces, colons,
 ## or semicolons.
 
-define build.name = "PhishandChips"
+define build.name = "PhishnChips"
 
 
 ## Sounds and music ############################################################
 
-## These three variables control, among other things, which mixers are shown
-## to the player by default. Setting one of these to False will hide the
-## appropriate mixer.
+## These three variables control which mixers are shown to the player by
+## default. Setting one of these to False will hide the appropriate mixer.
 
 define config.has_sound = True
 define config.has_music = True
@@ -120,7 +119,7 @@ define config.window_hide_transition = Dissolve(.2)
 ## Controls the default text speed. The default, 0, is infinite, while any other
 ## number is the number of characters per second to type out.
 
-default preferences.text_cps = 0
+default preferences.text_cps = 15
 
 
 ## The default auto-forward delay. Larger numbers lead to longer waits, with 0
@@ -143,7 +142,7 @@ default preferences.afm_time = 15
 ## This generally should not be changed, and if it is, should always be a
 ## literal string, not an expression.
 
-define config.save_directory = "PhishandChips-1651795455"
+define config.save_directory = "PhishnChips-1651713455"
 
 
 ## Icon ########################################################################
