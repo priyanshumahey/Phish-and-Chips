@@ -1,4 +1,4 @@
-﻿# The script of the game goes in this file.
+# The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -23,7 +23,7 @@ default cyberpoints = 0
 # The game starts here.
 
 label start:
-    
+
     $ name = renpy.input("What's your name?", "Catya", length=15)
     $ player_name = name.strip()
     "[name]! I love that!"
@@ -31,7 +31,7 @@ label start:
     return
 
 label after_start:
-    
+
 
     # add in character selection here. Need the assets.
 
@@ -144,8 +144,10 @@ label after_start:
                     name "Got it."
 
 
-                "Report it, block them, and don’t send them any information":
-                    name "You should report them, block them, and make sure to not send them any information or click on any links they send you. You should never share your login information with anyone."
+                "Report it and block them":
+                    name "You should report them, block them, and make sure to not send them any information or click on any links they send you."
+
+                    name "You should never share your login information with anyone."
 
                     coco "Okay…fine. I guess you’re right."
 
@@ -221,7 +223,7 @@ label after_start:
     "Phone reminder: Rent is due in 14 days."
 
     name "Right…rent is due soon. I don’t think babysitting money is going to be enough to cover it."
-    
+
     "I hope I hear back from a job soon…I desperately need it."
 
     name "Ughhh"
@@ -232,20 +234,20 @@ label after_start:
 
     name "An email?"
 
-    "Dear, [name], we have carefully gone over your application and reviewed your interview."
+    pumpkin "Dear, [name], we have carefully gone over your application and reviewed your interview."
 
-    "We would like you to invite you to work with us at Phish n’ Chips Inc. as an intern."
+    pumpkin "We would like you to invite you to work with us at Phish n’ Chips Inc. as an intern."
 
-    "Please reply as soon as you are available."
+    pumpkin "Please reply as soon as you are available."
 
-    "Best,
+    pumpkin "Best,
 
     Pumpkin
     CEO"
 
     name "Ohmygosh! Ohmygosh! This can’t be happening."
 
-    "A grin spreads across my face. I would have screamed for joy if Coco weren’t sleeping."
+    "A grin spread across my face. I would have screamed for joy if Coco weren’t sleeping."
 
     menu:
         "Reply to email":
@@ -261,7 +263,7 @@ label after_start:
 
     "*Ding*"
 
-    "Splendid! Training starts tomorrow at 9am. Please bring your laptop and your enthusiasm.
+    pumpkin "Splendid! Training starts tomorrow at 9am. Please bring your laptop and your enthusiasm.
 
     Cheers,
 
@@ -321,7 +323,7 @@ label after_start:
             name "What should I do?"
 
             menu:
-                "Only delete all the messages":
+                "Only delete all the links":
                     catbot "Close! If you get hacked, change your password immediately and delete all those messages with the links! Let your friends know that you’ve been hacked!"
 
                     name "Thanks! I’ll do that."
@@ -336,7 +338,7 @@ label after_start:
 
                     name "Thanks! I’ll do that."
 
-                "Change your password and delete all the messages with the links":
+                "Change your password & delete the links":
                     catbot "That’s right! If you get hacked, change your password immediately and delete all those messages with the links! Let your friends know that you’ve been hacked!"
 
                     name "Thanks! I’ll do that."
@@ -351,10 +353,10 @@ label after_start:
             meow "Ahhhh! What should I do?"
 
             menu:
-                "Only delete all the messages":
+                "Only delete all the links":
                     catbot "This answer could be better. If you get hacked, change your password immediately and delete all those messages with the links! Let your friends know that you’ve been hacked!"
 
-                "Change password and delete messages with links":
+                "Change your password & delete the links":
                     catbot "That’s right! If you get hacked, change your password immediately and delete all those messages with the links! Let your friends know that you’ve been hacked!"
 
                     name "Meowricio! You should change your password. Then, delete all those messages and let everyone else know that you got hacked."
@@ -444,10 +446,10 @@ label minigame_1:
     catbot "Connecting to a good WIFI network is really important to be safe online!"
 
     catbot "Pick the right WIFI network to use!"
-    
+
     call screen wifi
     jump minigame_2
-    return 
+    return
 
 screen wifi:
     imagebutton auto "wifi/background_wifi_%s.png":
@@ -466,26 +468,26 @@ screen wifi:
         idle "wifi/op3_idle.png"
         hover "wifi/op3_hover.png"
         focus_mask True
-        action Jump("minigame_2")    
+        action Jump("minigame_2")
     imagebutton:
         idle "wifi/op4_idle.png"
         hover "wifi/op4_hover.png"
         focus_mask True
-        action Jump("choice_4")    
+        action Jump("choice_4")
     imagebutton:
         idle "wifi/op5_idle.png"
         hover "wifi/op5_hover.png"
         focus_mask True
-        action Jump("choice_5")    
+        action Jump("choice_5")
     imagebutton:
         idle "wifi/op6_idle.png"
         hover "wifi/op6_hover.png"
         focus_mask True
-        action Jump("choice_6")    
+        action Jump("choice_6")
 
 label choice_1:
     name "This is not protected! I shouldn't connect to this one. It's not safe"
-    
+
     jump minigame_1
     return
 
@@ -514,7 +516,7 @@ label choice_6:
 
 label minigame_2:
     hide screen wifi
-    "This is the perfect wifi! It is secure, it is not someone's personal WiFi!"
+    "This is the perfect WiFi! It is secure and it is not someone's personal WiFi!"
     "The name IS a bit silly tho..."
     "We always have to be careful which wifi we connect to since the wifi network can access a lot of personal information."
     "This can include which websites we access and what we download"
@@ -527,7 +529,7 @@ label minigame_2:
 label trans_to_mini_2:
 
     name "Alright! I should get my password set up for my company account!"
-    name "Normally I log in with my dance dance revolution pad! Hmm let me try my normal password"
+    name "Normally I log in with my hop hop revolution pad! Hmm let me try my normal password"
     python:
         import random
         randomlist = ""
@@ -574,7 +576,7 @@ label trans_to_mini_2_after:
         pass
     elif not p13_pass:
         "That's not correct! I should try again"
-        jump trans_to_mini_2_after    
+        jump trans_to_mini_2_after
 
     python:
         p11 = renpy.input("What are the first four digits of the password?", length=4)
@@ -585,7 +587,7 @@ label trans_to_mini_2_after:
         pass
     elif not p14_pass:
         "That's not correct! I should try again"
-        jump trans_to_mini_2_after    
+        jump trans_to_mini_2_after
 
     name "Yes! I remembered!"
     "Hmmm..."
@@ -600,7 +602,7 @@ label trans_to_mini_2_after_final:
         passing = False
     while not passing:
         python:
-            import re 
+            import re
             passw = renpy.input("What is your password?", length=32)
             passw = passw.strip()
 
@@ -610,7 +612,7 @@ label trans_to_mini_2_after_final:
             special_p =0
             num_p = 0
             char_len = 0
-            string_check= re.compile("[@_!#$%^&*()<>?/\|}{~:]") 
+            string_check= re.compile("[@_!#$%^&*()<>?/\|}{~:]")
 
             for i in range(len(passw)):
                 if passw[i].islower():
@@ -620,8 +622,8 @@ label trans_to_mini_2_after_final:
                 if passw[i].isdigit():
                     num_p = 1
                 if not string_check.search(passw) == None:
-                    special_p = 1     
-            
+                    special_p = 1
+
             in_mes = ""
             if len(passw) < 8:
                 in_mes = in_mes + "This password is too short! "
@@ -658,7 +660,7 @@ label during_minigame_2:
     if x:
         jump after_minigame_2
 
-    return    
+    return
 
 label after_minigame_2:
     name "Nice! I have my new account! Now all I need to do is…"
@@ -715,9 +717,9 @@ label after_minigame_2:
 
     name "What kind of security hazards might there be?"
 
-    doug "Sometimes, you forgot to logout and that can cause issues"
+    doug "Sometimes, you forgot to logout and that can cause issues."
 
-    "People can also track what you do their on their laptops so be super careful which kind of information you go through on other's computers"
+    doug "People can also track what you do their on their laptops so be super careful which kind of information you go through on other's computers"
 
     name "Oh you're right! I'll try to be careful what I access with public computers and other people computers."
 
@@ -764,7 +766,9 @@ label paws_check:
             "Oh no! I didn't do them properly!"
             "I guess I have to do it again!"
             jump pre_minigame_4
-    return 
+    return
+
+# !!! very wrong; need to fix it.
 
 screen up_down:
     imagebutton:
@@ -810,7 +814,7 @@ label minigame_4:
 
     "Click paws down if it's a bad email (phishing or spam) and I should block the sender and delete the email!"
 
-    
+
     jump pre_minigame_4
     return
 
@@ -869,7 +873,7 @@ label after_minigame_4:
             jerry "O-oh no! What’s happening?"
 
             catbot "Be careful when downloading files on the internet! Downloaded files might contain viruses or malicious code."
-            
+
             catbot "This could mean spyware and Trojans designed to steal data or create backdoors in the computers."
 
             jerry "I-I should have updated my firewall."
@@ -899,7 +903,7 @@ label after_minigame_4:
 screen doors:
     imagebutton:
         idle "net/left_close.png"
-        hover "net/left_opening.png"        
+        hover "net/left_opening.png"
         focus_mask True
         action Jump("jump after_minigame_5")
     imagebutton:
@@ -1119,11 +1123,11 @@ label after_minigame_5:
     pumpkin "Anyway…you should pack up…"
 
     name "Yeah…I guess so…"
-    
+
     "Aw man... I was really excited for this job too..."
 
     name "Alright time to clean up! I have to clean the proper areas!"
-    
+
     "Typically when you're finished with work you should keep the work area clean"
 
     "You should also try to keep computers clean! Especially ones with secure information on them"
@@ -1131,7 +1135,7 @@ label after_minigame_5:
     "To get rid of any documents, they need to be shred and on anything private on the computer, they need to be securely deleted"
 
     "I need to make sure my harddrive is properly cleared of any private information"
-    
+
     "Press the right keys on areas we think might be dirty to clean!"
     jump minigame_6
     return
@@ -1143,7 +1147,7 @@ label minigame_6:
     $arr_keys = ["c", "e", "K_UP", "K_SPACE", "K_DOWN"]
     $wins = 0
     $loses = 0
-    $max_win = 15 
+    $max_win = 15
 
     while not wins + loses == max_win:
         call qte_setup(0.99, 0.99, 0.01, renpy.random.choice(arr_keys), renpy.random.randint(1, 9) * 0.1, renpy.random.randint(1, 9) * 0.1)
@@ -1170,7 +1174,7 @@ label minigame_6_2:
     $arr_keys = ["c", "e", "K_UP", "K_SPACE", "K_DOWN"]
     $wins = 0
     $loses = 0
-    $max_win = 10 
+    $max_win = 10
 
     while not wins + loses == max_win:
         call qte_setup(0.65, 0.65, 0.01, renpy.random.choice(arr_keys), renpy.random.randint(1, 9) * 0.1, renpy.random.randint(1, 9) * 0.1)
