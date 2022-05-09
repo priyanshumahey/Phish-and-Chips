@@ -7,6 +7,9 @@ Welcome to Phish n' Chips! It's your one stop shop for all your computer chip ne
 YouTube video:
 https://youtu.be/eKhltsZU6Is
 
+To play the game:
+
 Google Drive Link to downlaod the finished exe:
 https://drive.google.com/drive/folders/1k7NN3UYNYsJ_o5cGLLMFw8LuKMyd_xk9?usp=sharing
+
 To play, download the folder and then click on the exe to start the game!
